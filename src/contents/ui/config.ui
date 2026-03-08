@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Config</class>
+ <widget class="QWidget" name="Config">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>520</width>
+    <height>480</height>
+   </rect>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLabel">
+     <property name="text">
+      <string>
+After changing any setting, you must &lt;b&gt;disable and then re-enable&lt;/b&gt; the script&lt;br&gt; for the new values to take effect.</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="styleSheet">
+      <string>QLabel { color: #d32f2f; font-weight: bold; background: #ffebee; padding: 8px; border-radius: 4px; }</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel">
+     <property name="text">
+      <string>&lt;b&gt;Short breaks&lt;/b&gt;</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QFormLayout">
+     <item row="0" column="0">
+      <widget class="QLabel"><property name="text"><string>Frequency:</string></property></widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QSpinBox" name="kcfg_intervalMinutes">
+       <property name="suffix"><string> minutes</string></property>
+       <property name="minimum"><number>3</number></property>
+       <property name="maximum"><number>120</number></property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel"><property name="text"><string>Duration:</string></property></widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QSpinBox" name="kcfg_shortTotalSeconds">
+       <property name="suffix"><string> seconds</string></property>
+       <property name="minimum"><number>5</number></property>
+       <property name="maximum"><number>120</number></property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel"><property name="text"><string>Flash interval:</string></property></widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QSpinBox" name="kcfg_shortFlashIntervalMs">
+       <property name="suffix"><string> ms</string></property>
+       <property name="minimum"><number>200</number></property>
+       <property name="maximum"><number>2000</number></property>
+       <property name="singleStep"><number>100</number></property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QLabel">
+     <property name="text"><string>&lt;b&gt;Long breaks&lt;/b&gt; (every N short cycles)</string></property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QFormLayout">
+     <item row="0" column="0">
+      <widget class="QLabel"><property name="text"><string>Every:</string></property></widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QSpinBox" name="kcfg_longEveryNCycles">
+       <property name="suffix"><string> short breaks</string></property>
+       <property name="minimum"><number>2</number></property>
+       <property name="maximum"><number>12</number></property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel"><property name="text"><string>Duration:</string></property></widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QSpinBox" name="kcfg_longTotalSeconds">
+       <property name="suffix"><string> seconds</string></property>
+       <property name="minimum"><number>20</number></property>
+       <property name="maximum"><number>300</number></property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel"><property name="text"><string>Flash interval:</string></property></widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QSpinBox" name="kcfg_longFlashIntervalMs">
+       <property name="suffix"><string> ms</string></property>
+       <property name="minimum"><number>400</number></property>
+       <property name="maximum"><number>3000</number></property>
+       <property name="singleStep"><number>200</number></property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation"><enum>Qt::Vertical</enum></property>
+     <property name="sizeHint" stdset="0"><size><width>20</width><height>40</height></size></property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+</ui>

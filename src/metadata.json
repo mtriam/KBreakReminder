@@ -1,0 +1,17 @@
+{
+    "KPlugin": {
+        "Name": "KBreakReminder",
+        "Description": "Periodically flashes (minimizes/restores) the active window to enforce micro-breaks",
+        "Icon": "preferences-desktop-display",
+        "Category": "Productivity",
+        "Author": "User",
+        "EnabledByDefault": true,
+        "Id": "KBreakReminder",
+        "License": "GPL",
+        "Version": "1.0.0"
+    },
+    "X-Plasma-API": "javascript",
+    "X-Plasma-MainScript": "code/main.js",
+    "KPackageStructure": "KWin/Script",
+    "X-KDE-ConfigModule": "kwin/effects/configs/kcm_kwin4_genericscripted"
+}
