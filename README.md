@@ -23,21 +23,14 @@ uninterrupted periods is known to negatively affect overall health.
 
 ---
 
-**Typical workflow:**
+# 🔄 How it works
 
-1. You work normally in any window
-2. After the configured interval (default **15 minutes**) a break cycle starts
-3. The active window begins **flashing**:
-
-```
-minimize → restore → minimize → restore
-```
-
-4. The flashing lasts for the configured break duration
-5. Work resumes normally
-
-Longer breaks automatically occur after several short cycles.
-
+1. You work normally
+2. After the configured interval (default: 15 min)
+3. A break starts:
+   - (NEW) 5-second OSD warning
+   - active window flashes (minimize ↔ restore)
+4. Work resumes
 ---
 
 # ✨ Features
@@ -82,6 +75,18 @@ This prevents:
 
 • break triggers immediately after wake
 • flashing windows after system resume
+
+---
+
+### 🔔 Pre-break warning (OSD)
+
+Before each break, a **5-second on-screen countdown** is displayed:
+
+
+Break in 5s → 4s → 3s → ...
+
+
+This helps you prepare for the interruption instead of being surprised.
 
 ---
 
