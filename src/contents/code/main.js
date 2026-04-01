@@ -23,6 +23,51 @@ function restoreWindow(w) {
 }
 
 // ────────────────────────────────────────────────
+
+function showOSD(message, icon = "object-order") {
+    if (!message) return;
+
+    callDBus(
+        "org.kde.plasmashell",
+        "/org/kde/osdService",
+        "org.kde.osdService",
+        "showText",
+        icon,
+        message
+    );
+}
+
+function triggerBreakWithWarning() {
+    // jeśli już coś miga → nie rób nic
+    if (activeFlashTimer) {
+        return;
+    }
+
+    let secondsLeft = 5;
+
+    showOSD(`Break in ${secondsLeft}s`, "clock");
+
+    let countdownTimer = new QTimer();
+    countdownTimer.interval = 1000;
+    countdownTimer.singleShot = false;
+
+    countdownTimer.timeout.connect(() => {
+        secondsLeft--;
+
+        if (secondsLeft > 0) {
+            showOSD(`Break in ${secondsLeft}s`, "clock");
+        } else {
+            countdownTimer.stop();
+            startFlashCycle();
+        }
+    });
+
+    countdownTimer.start();
+}
+
+
+
+
 function checkIfWeWereSleeping() {
     const now = Date.now();
     const diffMs = now - lastActivityTime;
@@ -132,7 +177,8 @@ function startFlashCycle() {
 mainTimer = new QTimer();
 mainTimer.interval = cfg.intervalMinutes * 60 * 1000;
 mainTimer.singleShot = false;
-mainTimer.timeout.connect(startFlashCycle);
+//mainTimer.timeout.connect(startFlashCycle);
+mainTimer.timeout.connect(triggerBreakWithWarning);
 mainTimer.start();
 
 // ────────────────────────────────────────────────
@@ -151,3 +197,4 @@ print(
     ` short: ${cfg.shortTotalSeconds}s / flash every ${cfg.shortFlashIntervalMs}ms`,
     ` long: ${cfg.longTotalSeconds}s / flash every ${cfg.longFlashIntervalMs}ms`
 );
+
